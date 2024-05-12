@@ -1,6 +1,6 @@
 import React from "react";
 
-const index = () => {
+const Navbar = () => {
   return (
     <header className="bg-success-subtle">
       <nav className=" container navbar navbar-expand-lg">
@@ -26,4 +26,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Navbar;
