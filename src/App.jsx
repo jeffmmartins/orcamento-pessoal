@@ -1,12 +1,13 @@
 import React from 'react';
-import Header from "./components/Header/Navbar"
+import Cadastro from './routes/Cadastro';
+
 
 
 
 function App() {
   return (
    <>
-    <Header/>
+    <Cadastro/>
    </>
   );
 }
