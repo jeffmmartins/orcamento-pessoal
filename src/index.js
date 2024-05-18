@@ -9,13 +9,19 @@ import Consulta from "./routes/Consulta";
 
 const router = createBrowserRouter([
   {
-    path:"/",
-    element: <Cadastro/>
+    path: "/",
+    element: <App/>,
+    children: [
+      {
+        path: "cadastro",
+        element: <Cadastro/>
+      },
+      {
+        path: "consulta",
+        element: <Consulta/>
+      }
+    ]
   },
-  {
-    path:"consulta",
-    element: <Consulta/>
-  }
 ])
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

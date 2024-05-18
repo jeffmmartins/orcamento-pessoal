@@ -1,13 +1,11 @@
 import React from 'react';
-import Cadastro from './routes/Cadastro';
-
-
-
+import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
    <>
-    <Cadastro/>
+    <Outlet/>
+    <p>Footer</p>
    </>
   );
 }
