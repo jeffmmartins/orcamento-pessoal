@@ -1,27 +1,31 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <header className="bg-success-subtle">
       <nav className=" container navbar navbar-expand-lg">
-        <a href="">
-          <img src="img/money.png" alt="Dinheiro" />
-        </a>
+        <img src="img/money.png" alt="Dinheiro" />
+
         <div className="ms-4">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a href="" className="nav-link fs-5">
+              <NavLink
+                to="/"
+                activeClassName="active"
+                className="nav-link fs-5"
+              >
                 Cadastro
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a href="" className="nav-link fs-5">
+              <NavLink
+                to="/consulta"
+                activeClassName="active"
+                className="nav-link fs-5"
+              >
                 Consulta
-              </a>
-            </li>
-            <li>
-                <Link to="/consulta">Dinheiro</Link>
+              </NavLink>
             </li>
           </ul>
         </div>

@@ -6,23 +6,25 @@ import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Cadastro from "./routes/Cadastro";
 import Consulta from "./routes/Consulta";
+import ErroPage from "./components/ErroPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
+    element: <App />,
+    errorElement: <ErroPage/>,
     children: [
       {
-        path: "cadastro",
-        element: <Cadastro/>
+        path: "/",
+        element: <Cadastro />,
       },
       {
-        path: "consulta",
-        element: <Consulta/>
-      }
-    ]
+        path: "/consulta",
+        element: <Consulta />,
+      },
+    ],
   },
-])
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
