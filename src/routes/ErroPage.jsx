@@ -8,4 +8,4 @@ const ErroPage = () => {
   )
 }
 
-export default ErroPage
+export default ErroPage;
