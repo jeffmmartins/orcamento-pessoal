@@ -1,15 +1,21 @@
 import React from 'react'
+import { useForm } from 'react-hook-form'
 
 const Form = () => {
+  const {register, handleSubmit} = useForm("");
+
+  const salvar = (formdata) => {
+    console.log(formdata)
+  }
   
   return (
     <div>
-      <form action="">
+      <form action="" onSubmit={handleSubmit(salvar)} >
         <select name="" id="">
             <option value="">Ano</option>
-            <option value="2024">2024</option>
+            <option value="2024" {...register("ano")}>2024</option>
         </select>
-        <select name="" id="">
+        <select name="" id="" {...register("mes")}>
             <option value="">Mês</option>
             <option value="1">Janeiro</option>
             <option value="2">Fevereiro</option>
@@ -24,8 +30,8 @@ const Form = () => {
             <option value="11">Novembro</option>
             <option value="12">Dezembro</option>
         </select>
-        <input type="text" placeholder='Dia'/>
-        <select name="" id="">
+        <input type="text" placeholder='Dia' {...register("dia")}/>
+        <select name="" id="" {...register("tipo")}>
             <option value="">Tipo</option>
             <option value="1">Alimentação</option>
             <option value="2">Educação</option>
@@ -33,10 +39,10 @@ const Form = () => {
             <option value="4">Saúde</option>
             <option value="5">Transporte</option>
         </select>
-        <input type="text"  placeholder='Descrição'/>
-        <input type="text"  placeholder='Valor'/>
+        <input type="text"  placeholder='Descrição' {...register("descricao")}/>
+        <input type="text"  placeholder='Valor' {...register("valor")}/>
+        <button>Adicionar</button>
       </form>
-      <button>Adicionar</button>
     </div>
   )
 }
