@@ -6,6 +6,7 @@ const Form = () => {
   const [form, setForm] = useState({});
   
   useEffect(() => {
+    // carrega os dados quando o componente é montado 
     const dados = localStorage.getItem("cadastro");
     if(dados) {
       setForm(JSON.parse(dados))
