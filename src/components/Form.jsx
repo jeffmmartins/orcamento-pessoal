@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 const Form = () => {
   const {register, handleSubmit} = useForm("");
+  const {form, setForm} = useState("");
+
+  useEffect(() => {
+
+  },[])
 
   const salvar = (formdata) => {
-    console.log(formdata)
+    setForm(formdata)
   }
+
+  
   
   return (
     <div>
