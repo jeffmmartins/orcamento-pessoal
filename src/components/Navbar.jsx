@@ -10,20 +10,12 @@ const Navbar = () => {
         <div className="ms-4">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <NavLink
-                to="/"
-                activeClassName="active"
-                className="nav-link fs-5"
-              >
+              <NavLink to="/" className="nav-link fs-5">
                 Cadastro
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink
-                to="/consulta"
-                activeClassName="active"
-                className="nav-link fs-5"
-              >
+              <NavLink to="/consulta" className="nav-link fs-5">
                 Consulta
               </NavLink>
             </li>
