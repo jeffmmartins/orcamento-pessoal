@@ -3,30 +3,20 @@ import { useForm } from 'react-hook-form'
 
 const Form = () => {
   const {register, handleSubmit} = useForm("");
-  const [form, setForm] = useState({});
-  
-  useEffect(() => {
-    // carrega os dados quando o componente é montado 
-    const dados = localStorage.getItem("cadastro");
-    
-    if(dados) {
-      setForm(JSON.parse(dados))
-      console.log('teste3: ', dados)
-    }
-  },[])
+  const localDados = localStorage.getItem("cadastro")
+  const [form, setForm] = useState(localDados ? JSON.parse(localDados) : {});
 
-  
   useEffect(() => {
     localStorage.setItem('cadastro', JSON.stringify(form));
-  }, [form]);
-
-  const salvar = (formdata) => {
+  },[form]);
+  
+  const salvarFormulario = (formdata) => {
     setForm(formdata)
   }
 
   return (
     <div>
-      <form action="" onSubmit={handleSubmit(salvar)} >
+      <form action="" onSubmit={handleSubmit(salvarFormulario)} >
         <select name="" id="">
             <option value="">Ano</option>
             <option value="2024" {...register("ano")}>2024</option>
