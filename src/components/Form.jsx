@@ -8,25 +8,22 @@ const Form = () => {
   useEffect(() => {
     // carrega os dados quando o componente é montado 
     const dados = localStorage.getItem("cadastro");
+    
     if(dados) {
       setForm(JSON.parse(dados))
+      console.log('teste3: ', dados)
     }
   },[])
 
+  
   useEffect(() => {
     localStorage.setItem('cadastro', JSON.stringify(form));
   }, [form]);
 
-  
-  
-  
   const salvar = (formdata) => {
     setForm(formdata)
-    console.log(formdata)
   }
 
-  
-  
   return (
     <div>
       <form action="" onSubmit={handleSubmit(salvar)} >
@@ -34,7 +31,7 @@ const Form = () => {
             <option value="">Ano</option>
             <option value="2024" {...register("ano")}>2024</option>
         </select>
-        <select name="" id="" {...register("mes")}>
+        <select name="" id="" {...register("mês")}>
             <option value="">Mês</option>
             <option value="1">Janeiro</option>
             <option value="2">Fevereiro</option>
@@ -58,7 +55,7 @@ const Form = () => {
             <option value="4">Saúde</option>
             <option value="5">Transporte</option>
         </select>
-        <input type="text"  placeholder='Descrição' {...register("descricao")}/>
+        <input type="text"  placeholder='Descrição' {...register("descrição")}/>
         <input type="text"  placeholder='Valor' {...register("valor")}/>
         <button>Adicionar</button>
       </form>
