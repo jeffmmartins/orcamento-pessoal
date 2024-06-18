@@ -1,11 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import  ImgLogo  from "../assets/img/money.png"
 
 const Navbar = () => {
   return (
     <header className="bg-success-subtle">
       <nav className=" container navbar navbar-expand-lg">
-        <img src="img/money.png" alt="Dinheiro" />
+        <img src={ImgLogo} alt="Dinheiro" />
 
         <div className="ms-4">
           <ul className="navbar-nav">
