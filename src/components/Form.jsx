@@ -16,7 +16,7 @@ const Form = () => {
 
   return (
     <div>
-      <form action="" onSubmit={handleSubmit(salvarFormulario)} >
+      <form  onSubmit={handleSubmit(salvarFormulario)} >
         <select name="" id="">
             <option value="">Ano</option>
             <option value="2024" {...register("ano")}>2024</option>
