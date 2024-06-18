@@ -3,15 +3,23 @@ import { useForm } from 'react-hook-form'
 
 const Form = () => {
   const {register, handleSubmit} = useForm("");
-  const localDados = localStorage.getItem("cadastro")
-  const [form, setForm] = useState(localDados ? JSON.parse(localDados) : {});
+  const localDados = localStorage.getItem("cadastro");
+  const [form, setForm] = useState((localDados ? JSON.parse(localDados) : {}));
+  console.log(" 3- ", form)
 
   useEffect(() => {
-    localStorage.setItem('cadastro', JSON.stringify(form));
+    const dados = localStorage.getItem("cadastro")
+    const dadosexiste = JSON.parse(dados)
+    const info = {...dadosexiste}
+    console.log("4- ", info)
+    
+    localStorage.setItem('cadastro', JSON.stringify({...form}));
+    console.log("2-", form) 
   },[form]);
   
   const salvarFormulario = (formdata) => {
     setForm(formdata)
+    console.log("1-  ", formdata)
   }
 
   return (
