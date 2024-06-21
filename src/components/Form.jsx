@@ -5,21 +5,23 @@ const Form = () => {
   const {register, handleSubmit} = useForm("");
   const localDados = localStorage.getItem("cadastro");
   const [form, setForm] = useState((localDados ? JSON.parse(localDados) : {}));
-  console.log(" 3- ", form)
+  console.log("1", form)
 
   useEffect(() => {
-    const dados = localStorage.getItem("cadastro")
-    const dadosexiste = JSON.parse(dados)
-    const info = {...dadosexiste}
-    console.log("4- ", info)
-    
-    localStorage.setItem('cadastro', JSON.stringify({...form}));
-    console.log("2-", form) 
+    const dados = () => {
+      const localDados = localStorage.getItem("cadastro")
+      return localDados ? setForm(JSON.parse(localDados)) : {}
+    }
+    dados()
+  },[])
+
+  useEffect(() => {
+      localStorage.setItem("cadastro", JSON.stringify({...form})); 
   },[form]);
   
   const salvarFormulario = (formdata) => {
     setForm(formdata)
-    console.log("1-  ", formdata)
+    console.log('2', formdata)
   }
 
   return (
