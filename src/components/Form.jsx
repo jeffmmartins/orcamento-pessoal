@@ -3,8 +3,7 @@ import { useForm } from 'react-hook-form'
 
 const Form = () => {
   const {register, handleSubmit} = useForm("");
-  const localDados = localStorage.getItem("cadastro");
-  const [form, setForm] = useState((localDados ? JSON.parse(localDados) : {}));
+  const [form, setForm] = useState();
   console.log("1", form)
 
   useEffect(() => {
@@ -16,12 +15,13 @@ const Form = () => {
   },[])
 
   useEffect(() => {
+    //montar a logica para nao subescrever 
       localStorage.setItem("cadastro", JSON.stringify({...form})); 
   },[form]);
   
   const salvarFormulario = (formdata) => {
     setForm(formdata)
-    console.log('2', formdata)
+    
   }
 
   return (
