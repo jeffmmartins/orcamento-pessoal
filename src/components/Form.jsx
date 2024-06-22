@@ -2,26 +2,33 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 const Form = () => {
-  const {register, handleSubmit} = useForm("");
-  const [form, setForm] = useState();
+  const {register, handleSubmit} = useForm();
+  const [form, setForm] = useState([]);
   console.log("1", form)
 
   useEffect(() => {
-    const dados = () => {
-      const localDados = localStorage.getItem("cadastro")
-      return localDados ? setForm(JSON.parse(localDados)) : {}
+    const dados = localStorage.getItem('cadastro');
+    if (dados) {
+      setForm(JSON.parse(dados)); 
+    } else {
+      setForm([]); 
     }
-    dados()
-  },[])
+  }, []);
+ 
 
   useEffect(() => {
-    //montar a logica para nao subescrever 
-      localStorage.setItem("cadastro", JSON.stringify({...form})); 
+    localStorage.setItem("cadastro", JSON.stringify(form)); 
   },[form]);
   
   const salvarFormulario = (formdata) => {
-    setForm(formdata)
-    
+    //setForm([...form, formdata])
+    const dadosExistentes = localStorage.getItem('cadastro');
+    let dados = [];
+    if (dadosExistentes) {
+      dados = JSON.parse(dadosExistentes);
+    }
+    setForm([...dados, formdata]); 
+    localStorage.setItem("cadastro", JSON.stringify([...dados, formdata])); 
   }
 
   return (
