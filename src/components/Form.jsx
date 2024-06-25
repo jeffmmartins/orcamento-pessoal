@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 const Form = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const dados = localStorage.getItem("cadastro");
   const [form, setForm] = useState(dados ? JSON.parse(dados) : []);
 
@@ -13,6 +13,7 @@ const Form = () => {
 
   const salvarFormulario = (formdata) => {
     setForm([...form, formdata]);
+    reset();
   };
 
   return (
