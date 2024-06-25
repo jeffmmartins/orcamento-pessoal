@@ -12,7 +12,7 @@ const Form = () => {
   }, [form]);
 
   const salvarFormulario = (formdata) => {
-    setForm([...form, formdata]);
+    setForm([...form, formdata.ano, formdata.mes, formdata.dia, formdata.tipo, formdata.descricao, formdata.valor]);
     reset();
   };
 
@@ -25,7 +25,7 @@ const Form = () => {
             2024
           </option>
         </select>
-        <select name="" id="" {...register("mês")}>
+        <select name="" id="" {...register("mes")}>
           <option value="">Mês</option>
           <option value="1">Janeiro</option>
           <option value="2">Fevereiro</option>
@@ -49,10 +49,11 @@ const Form = () => {
           <option value="4">Saúde</option>
           <option value="5">Transporte</option>
         </select>
-        <input type="text" placeholder="Descrição" {...register("descrição")} />
+        <input type="text" placeholder="Descrição" {...register("descricao")} />
         <input type="text" placeholder="Valor" {...register("valor")} />
         <button>Adicionar</button>
       </form>
+      {form}
     </div>
   );
 };
